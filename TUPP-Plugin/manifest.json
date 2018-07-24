@@ -1,0 +1,27 @@
+{
+    "name":"Sandclock Beta",
+    "version":"1.0",
+    "manifest_version": 2,
+    "description": "Gathers information on the websites you visit and shows how much time you spent browsing. ",
+    "icons":{
+        "128":"interface/icon.png"
+    },
+    //popup, our extension access all websites
+    "browser_action": {
+        "default_tittle" :"TnP",
+        "default_popup" : "popup.html"
+    },
+    //Our background page
+    "background" : {
+        "scripts": ["background.js"]
+    },
+    //Our content script that gets injected on the website and retrieves information
+    "content_scripts":[{
+        "js": ["content.js"],
+        "matches": ["http://*/*", "https://*/*"]
+    }],
+    //The access permissions
+    "permissions": [
+        "background","http://*/*", "https://*/*","tabs","storage"
+    ]
+}
